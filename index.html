@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>スタンプラリー～東牟婁・新宮編～</title>
+    <title>スタンプラリー～日高川流域編～</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -137,8 +137,9 @@
 		    //「visit_data」というキーでローカルストレージが使われている場合は何もしない。使われていない場合は、すべてのスポットを未訪問として、各スポットへの訪問を無（初期設定）としてJSONデータに変換し、vist_ysという配列に格納する。
 		    //let visit_yn=[];
 		    if (flag<0){
-		      for(i=0; i < markerList.length; i++){
-			  visit_yn.push(-1);
+		    visit_yn[];  
+		    for(i=0; i < markerList.length; i++){
+			  visit_yn[i]=-1;
 		      }
 		      //ローカルストレージに書き込み
 		      let json_string_visit=JSON.stringify(visit_yn); 
