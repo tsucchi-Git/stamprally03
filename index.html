@@ -141,6 +141,7 @@
 		      for(i=0; i < markerList.length; i++){
 			  //visit_yn.push(-1);
 			visit_yn[i]=-1;
+			alert(i + ', visit_yn:' +visit_yn[i]);
 		      }
 		      //alert(visit_yn);
 		      //ローカルストレージに書き込み
@@ -203,7 +204,6 @@
 			var marker_lng=markerList[i].lng;  //スポットの東経
 			var markerIcon;
 			//alert(markerList[i].lat + ',' + marker_lng);
-			alert(i + ', visit_yn:' +visit_yn[i]);
 			if(visit_yn[i]<0){
 				markerIcon=greenIcon;
 				//alert('green'+i);
