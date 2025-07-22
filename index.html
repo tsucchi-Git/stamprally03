@@ -47,7 +47,7 @@
     <p id="title-explain" class="explain"></p>
 	
     <script>
-	let _flag = sessionStorage.getItem('flag_area'); //セッションストレージからキーflag_areaで保存されている値の取得
+	let _flag = sessionStorage.getItem('flag_area');//セッションストレージからキーflag_areaで保存されている値の取得（地域選択メニューから呼び出さ絵ている場合）
 	var selection=document.getElementById("selectarea");	
         if(_flag==100){
 	    	selection.src="icon/select-area.png";
@@ -111,10 +111,9 @@
             )            
               //取得したデータは連想配列
               .then(markerList => {
-		      alert(markerList.length):
-		//for (var i = 0; i < markerList.length; i++) {
-		//   alert('ファイルの読み込み成功しましたよ。' + markerList[i].id + ',' + markerList[i].lat + ',' + markerList[i].lng + '\n')
-		//}
+		// for (var i = 0; i < markerList.length; i++) {
+		//    alert(markerList[i].id + ',' + markerList[i].lat + ',' + markerList[i].lng + markerList[i].name + ',' + markerList[i].address + ',' + markerList[i].exp + '\n')
+		// }
 		  //ローカルストレージに災害碑の基礎データを保存
 		  if(window.localStorage){
 		    //localStorage.removeItem('visit_data%3'); //訪問の有無を記憶させるローカルストレージをクリアする
@@ -126,22 +125,24 @@
 		    let key_all='all_basic_data%' + markerList[0].areaid;
 		    localStorage.setItem(key_all,json_string);
 		    //「visit_data」というキーでローカルストレージにデータが保存されているか否かを確認する。
-		    var flag=-1
+		    var flag=-1;
 		    key_visit="visit_data%" + markerList[0].areaid;
 		    for (key in localStorage) {
 			if (localStorage.hasOwnProperty(key)) {
 			    if(key==key_visit){
-			      flag=1
+			      flag=1;
 			    }
 			}
 		    }
 		    //「visit_data」というキーでローカルストレージが使われている場合は何もしない。使われていない場合は、すべてのスポットを未訪問として、各スポットへの訪問を無（初期設定）としてJSONデータに変換し、vist_ysという配列に格納する。
-		    //let visit_yn=[];
-		    if (flag<0){
-		    visit_yn[];  
-		    for(i=0; i < markerList.length; i++){
-			  visit_yn[i]=-1;
+		   if (flag<0){
+		      visit_yn=[]; //配列の初期化
+		      //alert(visit_yn);
+		      for(i=0; i < markerList.length; i++){
+			  //visit_yn.push(-1);
+			visit_yn[i]=-1;
 		      }
+		      //alert(visit_yn);
 		      //ローカルストレージに書き込み
 		      let json_string_visit=JSON.stringify(visit_yn); 
 		      localStorage.setItem(key_visit,json_string_visit);
@@ -162,7 +163,7 @@
 		      attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
 		  }).addTo(mymap);
 		  //マーカーを表示する関数の呼び出し
-		  MarkerShow(); 
+		   MarkerShow(); 
 		  //現在地表示ボタンを作成
 		  L.easyButton('<img src="icon/position.png">', function(btn, easymap){
 		      //var hanedaAirport = [35.5494, 139.7798]; 
